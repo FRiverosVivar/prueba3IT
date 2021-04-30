@@ -1,0 +1,38 @@
+.bgBackground{
+    height: 100%;
+    width: 100%;
+    background: white;
+    position: absolute;
+    z-index: -2;
+    overflow: hidden;
+}
+.circleBg{
+    background:orange;
+    position:absolute;
+    height:100%;
+    width:500px;
+    top:-75%;
+    left:-30%;
+    border-radius: 50%;
+    z-index:-1;
+}
+.welcome{
+    color:black;
+    font-family: 'Anonymous Pro', monospace; 
+    text-align:center
+}
+.balance{
+    color:black;
+    font-family: 'Anonymous Pro', monospace;
+    text-align:center
+}
+.expansionPanel{
+    margin-top:20px;
+    margin-left:25px;
+    margin-right: 25px;
+}
+.buttonText{
+    color:orange;
+    font-size:16px;
+    margin:0px;
+}

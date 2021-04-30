@@ -1,0 +1,64 @@
+<div class="content bgBackground">
+    <div class="circleBg"></div>
+</div>
+<div>
+    
+    <mat-grid-list cols="1" rowHeight="7:1">
+        <mat-grid-tile>
+            <h1 class="welcome">Bienvenido</h1>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <h1 class="balance" style="text-decoration:underline;">Juanito Perez</h1>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <h1 class="balance">$ 384.418.583</h1>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <br>
+    <mat-accordion style="width:100%">
+        <mat-expansion-panel *ngFor="let divisa of divisas" class="expansionPanel" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{divisa.nombre}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-grid-list cols="1" rowHeight="4:1">
+
+            <mat-grid-tile>
+                <button mat-button (click)="detalleDivisa(divisa)">
+                    <h1 class="buttonText">Información detallada</h1>   
+                </button>
+                <i class="fas fa-angle-right" style="color:orange;font-size:30px"></i>
+            </mat-grid-tile>
+            <mat-divider></mat-divider>
+            <mat-grid-tile>
+                Unidad de Medida: {{divisa.unidad}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <ng-template *ngIf="divisa.unidad == 'Pesos';then mostrarIconoPesos;else mostrarDolares"></ng-template>
+                <ng-template #mostrarIconoPesos>
+                    <i class="fas fa-dollar-sign"></i>&nbsp; {{divisa.valor}}
+                </ng-template>
+                <ng-template #mostrarDolares>
+                    <ng-template *ngIf="divisa.unidad == 'Dolar';then mostrarDolar;else mostrarPorcentaje"></ng-template>
+                    <ng-template #mostrarDolar>
+                        <i class="fas fa-dollar-sign"></i>&nbsp; {{divisa.valor}}
+                    </ng-template>
+                    <ng-template #mostrarPorcentaje>
+                        Porcentaje: {{divisa.valor}}&nbsp;<i class="fas fa-percentage"></i>
+                    </ng-template>
+                </ng-template>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <i class="fas fa-calendar-times"></i>&nbsp; {{divisa.fecha.split(['T'])[0]}}
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <button mat-button (click)="ultimosValores(divisa)">
+                    <h1 class="buttonText" style="color:white;font-size:14px;">Ver últimos valores</h1>   
+                </button>
+            </mat-grid-tile>
+        </mat-grid-list>
+        </mat-expansion-panel>
+    </mat-accordion>
+    
+</div>

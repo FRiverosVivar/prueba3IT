@@ -1,0 +1,12 @@
+<mat-dialog-content>
+    <div class="content">
+        <p class="textValorActual">{{divisa.nombre}}</p>
+        <p class="textValorActual">{{divisa.valor}}</p>
+        <p class="textFecha">Fecha: {{divisa.fecha.split(['T'])[0]}}</p>
+        <p class="textUnidadDeMedida">Unidad de medida: {{divisa.unidad}}</p>
+        <div echarts [options]="options" theme="macarons" class="demo-chart"></div>
+        <button mat-button (click)="onNoClick()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+</mat-dialog-content>
